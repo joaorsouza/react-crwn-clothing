@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import React from "react";
 import "./preview-collection.scss";
+import CollectionItem from "../colection-item/collection-item.component";
 
 const CollectionPreview = ({ title, items }) => {
   return (
@@ -13,8 +14,8 @@ const CollectionPreview = ({ title, items }) => {
             return idx < 4;
           })
 
-          .map((item) => {
-            return <div key={item.id}>{item.name}</div>;
+          .map(({ id, ...otherItemProps }) => {
+            return <CollectionItem key={id} {...otherItemProps} />;
           })}
       </div>
     </div>
