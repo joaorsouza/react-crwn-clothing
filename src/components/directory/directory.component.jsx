@@ -1,6 +1,6 @@
-import React from 'react';
-import MenuItem from '../menu-item/Menu-item.component';
-import './directory.scss'
+import React from "react";
+import MenuItem from "../menu-item/Menu-item.component";
+import "./directory.scss";
 
 class Directory extends React.Component {
   constructor() {
@@ -8,46 +8,45 @@ class Directory extends React.Component {
     this.state = {
       sections: [
         {
-          title: 'hats',
-          imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+          title: "hats",
+          imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
           id: 1,
-          linkUrl: 'hats',
+          linkUrl: "hats",
         },
         {
-          title: 'jackets',
-          imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+          title: "jackets",
+          imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
           id: 2,
-          linkUrl: '',
+          linkUrl: "",
         },
         {
-          title: 'sneakers',
-          imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+          title: "sneakers",
+          imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
           id: 3,
-          linkUrl: '',
+          linkUrl: "",
         },
         {
-          title: 'womens',
-          imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-          size: 'large',
+          title: "womens",
+          imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
+          size: "large",
           id: 4,
-          linkUrl: '',
+          linkUrl: "",
         },
         {
-          title: 'mens',
-          imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-          size: 'large',
+          title: "mens",
+          imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+          size: "large",
           id: 5,
-          linkUrl: '',
+          linkUrl: "",
         },
       ],
     };
   }
 
   render() {
-    console.log('sections: ', this.state.sections)
     return (
       <div className="directory-menu">
-        {this.state.sections.map(({id, ...otherProps }) => {
+        {this.state.sections.map(({ id, ...otherProps }) => {
           return <MenuItem key={id} {...otherProps} />;
         })}
       </div>
