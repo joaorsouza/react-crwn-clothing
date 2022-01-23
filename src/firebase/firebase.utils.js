@@ -46,8 +46,6 @@ const firebaseConfig = {
       }
     }
 
-    console.log('ref: ', userRef)
-    console.log('data: ', userDataSnapShot)
     return userRef
   }
 
