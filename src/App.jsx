@@ -31,8 +31,9 @@ class App extends React.Component {
             ...snapShot.data(),
           });
         });
+      } else {
+        setCurrentUser(userAuth);
       }
-      setCurrentUser(userAuth);
     });
   }
 
@@ -41,7 +42,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("user:", this.props.currentUser);
     return (
       <div>
         <Header />
