@@ -23,8 +23,6 @@ const firebaseConfig = {
   export const singInWithGoogle = () => auth.signInWithPopup(provider)
   
   export const createUserProfileDocument = async (userAuth, additionalData) => {
-    // eslint-disable-next-line no-debugger
-    // debugger
     if(!userAuth) return
 
     const userRef = firestore.doc(`users/${userAuth.uid}`)

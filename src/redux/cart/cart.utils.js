@@ -1,8 +1,6 @@
 export const addItemToCart = (cartItems, cartItemToAdd) => 
 {
     console.log('addtoitemtocart: ', cartItems, cartItemToAdd);
-    // eslint-disable-next-line no-debugger
-    debugger
     const existingCartItem = cartItems.find(
         cartItem => cartItem.id === cartItemToAdd.id
     )
