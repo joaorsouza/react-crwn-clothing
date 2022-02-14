@@ -1,15 +1,19 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import "./App.css";
+
+import Header from "./components/header/header.component";
 import Homepage from "./pages/homepage/Homepage.component";
 import ShopPage from "./pages/shop/shop.component";
-import { Route, Switch, Redirect } from "react-router-dom";
-import Header from "./components/header/header.component";
 import SignInOut from "./pages/sign-in-up/sign-in-up.component";
+import Checkout from "./pages/checkout/checkout.component";
+import { Route, Switch, Redirect } from "react-router-dom";
+
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.actions";
+import { selectCurrentUser } from "./redux/user/user.selector";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -41,8 +45,8 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route exact path="/shop" component={ShopPage} />
-          {/* <Route exact path="/sign" component={SignInOut} /> */}
+          <Route path="/shop" component={ShopPage} />
+          <Route exact path="/checkout" component={Checkout} />
           <Route
             exact
             path="/sign"
@@ -56,8 +60,8 @@ class App extends React.Component {
   }
 }
 
-const mapToStateProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapToStateProps = (state) => ({
+  currentUser: selectCurrentUser(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

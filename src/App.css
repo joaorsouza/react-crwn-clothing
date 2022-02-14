@@ -11,3 +11,9 @@ a {
 * {
     box-sizing: border-box;
 }
+
+@media (min-width: 1700px) {
+    body{
+        padding: 20px 300px;
+    }
+}
