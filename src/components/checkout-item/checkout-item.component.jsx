@@ -1,8 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import "./checkout-item.scss";
+import { clearItemFomCart } from "../../redux/cart/cart.actions";
 
-const CheckoutItem = ({ cartItem: { imageUrl, name, quantity, price } }) => {
+const CheckoutItem = ({ cartItem, clearItem }) => {
+  const { imageUrl, name, quantity, price } = cartItem;
   return (
     <div className="checkout-item">
       <div className="image-container">
@@ -11,9 +14,20 @@ const CheckoutItem = ({ cartItem: { imageUrl, name, quantity, price } }) => {
       <span className="name">{name}</span>
       <span className="quantity">{quantity}</span>
       <span className="price">{price}</span>
-      <div className="remove-button">&#10005;</div>
+      <div
+        className="remove-button"
+        onClick={() => {
+          clearItem(cartItem);
+        }}
+      >
+        &#10005;
+      </div>
     </div>
   );
 };
 
-export default CheckoutItem;
+const mapDispatchToProps = (dispatch) => ({
+  clearItem: (item) => dispatch(clearItemFomCart(item)),
+});
+
+export default connect(null, mapDispatchToProps)(CheckoutItem);
